@@ -1,0 +1,26 @@
+server:
+  port: 8091
+
+spring:
+  application:
+    name: ms-customer
+  data:
+    mongodb:
+      port: 27017
+      database: intk
+      username: root
+      password: root
+      host: ${host}
+      authentication-database: admin
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    display-request-duration: true
+    groups-order: DESC
+    operationsSorter: method
+    disable-swagger-default-url: true
+  api-docs:
+    path: /v3/api-docs
+  show-actuator: true
+  packages-to-scan: com.demo.customer_intk.controller
