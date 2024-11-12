@@ -1,23 +1,22 @@
 package com.demo.customer_intk.document;
 
 import com.demo.customer_intk.model.dto.CustomerDto;
+import com.stater.intk.common.utils.GeneralUtils;
+import com.stater.intk.common.utils.MapperUtils;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
-
-import static com.stater.intk.util.GeneralUtil.generateId;
-import static com.stater.intk.util.MapperUtils.objectToObject;
 
 @Data
 public class CustomerDocument {
     @Id
-    private String id = generateId(25);
+    private String id = GeneralUtils.generateId(30, false);
     private String firstName;
     private String lastName;
     private String documentTye;
     private String documentNumber;
 
     public CustomerDto toDto() {
-        CustomerDto dto = objectToObject(this, CustomerDto.class);
+        CustomerDto dto = MapperUtils.objectToObject(this, CustomerDto.class);
         dto.setFullName(this.getFirstName().concat(" ").concat(this.getLastName()));
         return dto;
     }

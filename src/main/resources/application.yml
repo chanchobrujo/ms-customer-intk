@@ -4,6 +4,11 @@ server:
 spring:
   application:
     name: ms-customer
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${server-oauth2}
   data:
     mongodb:
       port: 27017

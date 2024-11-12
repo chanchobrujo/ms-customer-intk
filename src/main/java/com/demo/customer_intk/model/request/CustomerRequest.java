@@ -3,7 +3,7 @@ package com.demo.customer_intk.model.request;
 import com.demo.customer_intk.document.CustomerDocument;
 import lombok.Data;
 
-import static com.stater.intk.util.MapperUtils.objectToObject;
+import static com.stater.intk.common.utils.MapperUtils.objectToObject;
 
 @Data
 public class CustomerRequest {

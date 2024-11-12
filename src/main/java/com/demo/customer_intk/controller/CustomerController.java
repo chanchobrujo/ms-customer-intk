@@ -4,6 +4,7 @@ import com.demo.customer_intk.model.dto.CustomerDto;
 import com.demo.customer_intk.service.customer.ICustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,6 +20,7 @@ public class CustomerController {
     private final ICustomerService customerService;
 
     @GetMapping
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<Mono<CustomerDto>> findById(@RequestParam String id) {
         return ok(this.customerService.findById(id));
     }
